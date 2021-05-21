@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@200&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,19 +19,36 @@
         font-family: 'Sarabun', sans-serif;
         font-weight: 800;
     }
+
+        .carousel-item > img {
+    height: 50vh;
+    object-fit: cover;
+    width: auto;
+    object-position: right center;
+    margin: auto;
+    }    
+    .jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: .3rem;
+}
 /* Small devices (landscape phones, 544px and up) */
 @media (min-width: 544px) {  
   .jumbotron h1 {font-size:1.5em;} /*1rem = 16px*/
 }
+
  
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-@media (min-width: 768px) {  
-    .jumbotron h1 {font-size:2em;} /*1rem = 16px*/
+@media (max-width: 768px) {  
+    .jumbotron h1 {font-size:2em;}
+
 }
  
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
-    .jumbotron h1 {font-size:2.5em;} /*1rem = 16px*/
+    .jumbotron h1 {font-size:2.5em;}
+     
 }
  
 /* Extra large devices (large desktops, 1200px and up) */
@@ -44,13 +59,39 @@
     and (min-width : 375px) 
     and (-webkit-device-pixel-ratio : 3) { 
         .jumbotron h1 {font-size:1em;} 
+        .carousel-item > img {
+    height: 20vh;}
     }
 @media only screen and (max-width: 600px)
 and (-webkit-device-pixel-ratio : 2) {
     .jumbotron h1 {font-size:2em;}
     body {font-size:0.7em;}
     h3 {font-size:0.9em;}
+    .carousel-item > img {
+    height: 20vh;}
+
 }
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .jumbotron h1 {font-size:2em;}
+    body {font-size:0.7em;}
+    h3 {font-size:0.9em;}
+    .carousel-item > img {
+    height: 20vh;}
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1366px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .jumbotron h1 {font-size:2em;}
+    body {font-size:0.7em;}
+    h3 {font-size:0.9em;}
+    .carousel-item > img {
+    height: 20vh;}
+}
+
 </style>
 </head>
 <body>
@@ -88,7 +129,7 @@ and (-webkit-device-pixel-ratio : 2) {
                     <div class="col-6">
                            <h3 class="card-title">วัสดุและอุปกรณ์</h3>
                            <p class="card-text">1. NodeMCU (ESP8266)<br>2. บอร์ดสำหรับพัฒนา (Breadboard)
-                        <br>3. สายไฟ(ผู้-เมีย) <br>4. เซนเซอร์ตรวจจับแก๊ส MQ-2 <br> 5.ออด(Piezo) <br> 6. หลอดไฟ LED 2 สี (เขียว-แดง)</p>
+                        <br>3. สายไฟ(ผู้-เมีย) <br>4. เซนเซอร์ตรวจจับแก๊ส MQ-2 <br> 5. ออด(Piezo) <br> 6. หลอดไฟ LED 2 สี (เขียว-แดง)</p>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 pt-4">
                         <img class="img-fluid" src="img/Compro.jpg" alt="">
@@ -101,17 +142,74 @@ and (-webkit-device-pixel-ratio : 2) {
             </div>
         </div>
         <div class="row">
+            <div class="col-md-12">
+                <div class="card m-4 ">
+                    <div class="card-body">
+                        <h3 class="card-title">รูปขณะทำงาน</h3>
+                        <div class="col-md-8 offset-md-2">
+                        <div id="carouselExample" class="carousel slide " data-bs-ride="carousel" data-bs-interval="3000">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+                              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+                              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+                            </div>
+                            <div class="carousel-inner align-items-center" >
+                              <div class="carousel-item active">
+                                <img class="img-fluid w-100" src="img/1.png"  alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                   <h5>ขณะต่อกับ Line Notify</h5>
+                                   <p></p>
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <img class="img-fluid w-100" src="img/2.png"   alt="Second slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                   <h5>รูปการต่อวงจร</h5>
+                                   <p></p>
+                                </div>
+                              </div>
+                              <div class="carousel-item">
+                                <img class="img-fluid w-100" src="img/3.png"  alt="Third slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                  <h5>รูปการต่อวงจร2</h5>
+                                  <p></p>
+                               </div>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" data-bs-target="#carouselExample" type="button" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" data-bs-target="#carouselExample" type="button" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                           </div>
+                        </div>
 
+                          
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 <div class="card m-4">
                     <div class="card-body">
-                        <h3 class="card-title">ขั้นตอนการทำงาน</h3>
-                        <p class="card-text">เมื่อเริ่มรันโค้ด NodeMCU_LINE.ino โปรแกรมจะเริ่มทำงานโดยที่สถานะไฟ LED ตอนเริ่มจะเป็นสีเขียว เมื่อเซนเซอร์ MQ-2 <br>ตรวจจับแก๊สเจอ
-                            ไฟจะแสดงสถานะเป็นสีแดง และมีเสียงออดดังขึ้น จากนั้นอุปกรณ์จะต่อ WiFi ผ่าน NodeMCU เพื่อส่งการแจ้งเตือนไปยัง Line Notify
-                        </p>
+                        <h3 class="card-title">ผลการทดลอง</h3>
+                        <p class="card-text">ผลการทดลองการทำงานที่ได้อุปกรณ์ดักจับควันมีการทำงานที่แม่นยำ เมื่อมีควันที่เข้าใกล้จะมีการแจ้งเตือนข้อความปริมานควันไปยังแอปพลิเคชันLine และมีไฟแจ้งเตือนบริเวณบอร์ด มีเสียงออดแจ้งเตือนทุกครั้งที่เกิดขึ้น เพื่อให้เตรียมตัวรับมือกับอัคคีภัยที่อาจจะเกิดขึ้นได้ทันทวงที</p>
                     </div>
                 </div>
-                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card m-4">
+                    <div class="card-body">
+                        <img class="img-fluid" src="img/Poster.png" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
